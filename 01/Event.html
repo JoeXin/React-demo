@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <a href="#" onclick="console.log('The link was clicked.'); return false">
+            Click me
+        </a> -->
+
+    </div>
+    <script type='text/babel'>
+
+       class Toggle extends React.Component{
+           constructor(props){
+               super(props);
+               this.state={isToggleOn:true};
+               this.handleClick=this.handleClick.bind(this);//点击事件
+           }
+
+           handleClick(){
+               this.setState(a=>({
+                   isToggleOn:!a.isToggleOn
+               }));
+           }
+
+           render(){
+               return(
+                   <button onClick={this.handleClick}>
+                    {this.state.isToggleOn?'On':'Off'}
+                   </button>
+               )
+           }
+       }
+
+    ReactDOM.render(
+        <Toggle/>,
+        document.getElementById('app')
+    )
+
+
+
+    
+    </script>
+</body>
+
+</html>

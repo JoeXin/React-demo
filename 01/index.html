@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>index</title>
-</head>
-<body>
     <script src="../js/react.development.js"></script>
-    <script src="../js/react-dom-server.browser.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
     <script src="../js/babel.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+      
+        class HelloWorld extends React.Component {
+            render(props) {
+                return <div><a>Hello {this.props.name}</a>
+                    <SubMsg></SubMsg>
+                     </div>;
+               
+            }
+        }
+
+        class SubMsg extends React.Component {
+            render() {
+                return <div>写代码有意思<Footer></Footer></div>;
+            }
+        }
+        class Footer extends React.Component {
+            render() {
+                return <d>底部</d>;
+            }
+        }
+        ReactDOM.render(
+            <HelloWorld name='John' />,
+            document.getElementById('app')
+        )
+    </script>
+
 </body>
+
 </html>
